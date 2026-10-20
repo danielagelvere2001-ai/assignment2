@@ -1,0 +1,507 @@
+{
+ "built": "2026-10-20",
+ "source": "Restaurant_merged.csv",
+ "exams": [
+  {
+   "id": "R01",
+   "title": "Temperature and sales",
+   "equation": "Predicted daily sales = b₀ + b1[Max temperature]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Max temperature",
+     "desc": "highest temperature of the day (°F)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 2725.2924,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Max temperature",
+     "estimate": 7.5797,
+     "p": 0.008
+    }
+   ],
+   "n": 312,
+   "r2": 0.0227,
+   "terms": [
+    "tmax"
+   ],
+   "questions": [
+    {
+     "id": "R01-P",
+     "kind": "num",
+     "prompt": "Predict daily sales for a day with max temperature = 70.",
+     "answer": 3255.87,
+     "tol": 16.279352853059468,
+     "explain": "Substitute into the model: 2725.29 + (7.5797 × 70) = 3255.87.",
+     "fingerprint": "59a2b54beaffc1f9"
+    },
+    {
+     "id": "R01-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when max temperature is 10 °F higher?",
+     "answer": 75.8,
+     "tol": 0.5,
+     "explain": "The change is b1 × 10 = 7.5797 × 10 = 75.8.",
+     "fingerprint": "a91743c5cb521ddc"
+    },
+    {
+     "id": "R01-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is max temperature statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "Yes",
+     "explain": "Its p-value is 0.008, which is below 0.05, so we reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "817512194ee59fc8"
+    },
+    {
+     "id": "R01-R",
+     "kind": "num",
+     "prompt": "What share of the variation in daily sales does this model explain? Give R² as a percentage (one decimal).",
+     "answer": 2.3,
+     "tol": 0.051,
+     "explain": "R² = 0.0227, so the model explains 2.3% of the variation.",
+     "fingerprint": "3bd9bb7f55f9b913"
+    }
+   ]
+  },
+  {
+   "id": "R02",
+   "title": "Game days and sales",
+   "equation": "Predicted daily sales = b₀ + b1[Game day]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Game day",
+     "desc": "1 = university football game that day, 0 = no game (reference group)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 3191.0803,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Game day",
+     "estimate": 1436.3043,
+     "p": 0.0
+    }
+   ],
+   "n": 312,
+   "r2": 0.0748,
+   "terms": [
+    "gameDay"
+   ],
+   "questions": [
+    {
+     "id": "R02-P",
+     "kind": "num",
+     "prompt": "Predict daily sales for a day with game day = 1.",
+     "answer": 4627.38,
+     "tol": 23.136923076923075,
+     "explain": "Substitute into the model: 3191.08 + (1436.3043 × 1) = 4627.38.",
+     "fingerprint": "6b76a17dd7745761"
+    },
+    {
+     "id": "R02-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when game day is 1 instead of 0?",
+     "answer": 1436.3,
+     "tol": 7.181521739130438,
+     "explain": "The change is b1 × 1 = 1436.3043 × 1 = 1436.3.",
+     "fingerprint": "3361774c9ea8842b"
+    },
+    {
+     "id": "R02-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is game day statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "Yes",
+     "explain": "Its p-value is 0.000, which is below 0.05, so we reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "cb87c69e5060141a"
+    },
+    {
+     "id": "R02-R",
+     "kind": "num",
+     "prompt": "What share of the variation in daily sales does this model explain? Give R² as a percentage (one decimal).",
+     "answer": 7.5,
+     "tol": 0.051,
+     "explain": "R² = 0.0748, so the model explains 7.5% of the variation.",
+     "fingerprint": "8acff9ef536bbf32"
+    }
+   ]
+  },
+  {
+   "id": "R03",
+   "title": "Weekend and temperature",
+   "equation": "Predicted daily sales = b₀ + b1[Weekend] + b2[Max temperature]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Weekend",
+     "desc": "1 = Friday, Saturday or Sunday, 0 = Monday–Thursday (reference group)"
+    },
+    {
+     "name": "Max temperature",
+     "desc": "highest temperature of the day (°F)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 2340.683,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Weekend",
+     "estimate": 1312.4562,
+     "p": 0.0
+    },
+    {
+     "param": "b2",
+     "term": "Max temperature",
+     "estimate": 6.6959,
+     "p": 0.003
+    }
+   ],
+   "n": 312,
+   "r2": 0.3731,
+   "terms": [
+    "weekend",
+    "tmax"
+   ],
+   "questions": [
+    {
+     "id": "R03-P",
+     "kind": "num",
+     "prompt": "Predict daily sales for a day with weekend = 1, max temperature = 70.",
+     "answer": 4121.85,
+     "tol": 20.60925848338049,
+     "explain": "Substitute into the model: 2340.68 + (1312.4562 × 1) + (6.6959 × 70) = 4121.85.",
+     "fingerprint": "07fa31724fc14c5b"
+    },
+    {
+     "id": "R03-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when weekend is 1 instead of 0, holding the other variables constant?",
+     "answer": 1312.46,
+     "tol": 6.562281100908928,
+     "explain": "The change is b1 × 1 = 1312.4562 × 1 = 1312.46.",
+     "fingerprint": "2716cd7c0ede51a4"
+    },
+    {
+     "id": "R03-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is max temperature statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "Yes",
+     "explain": "Its p-value is 0.003, which is below 0.05, so we reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "25e8bdf7312dae5f"
+    },
+    {
+     "id": "R03-R",
+     "kind": "num",
+     "prompt": "What share of the variation in daily sales does this model explain? Give R² as a percentage (one decimal).",
+     "answer": 37.3,
+     "tol": 0.051,
+     "explain": "R² = 0.3731, so the model explains 37.3% of the variation.",
+     "fingerprint": "5e5ce2971be31d19"
+    }
+   ]
+  },
+  {
+   "id": "R04",
+   "title": "Weather and game days",
+   "equation": "Predicted daily sales = b₀ + b1[Max temperature] + b2[Precipitation] + b3[Game day]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Max temperature",
+     "desc": "highest temperature of the day (°F)"
+    },
+    {
+     "name": "Precipitation",
+     "desc": "precipitation (inches)"
+    },
+    {
+     "name": "Game day",
+     "desc": "1 = university football game that day, 0 = no game (reference group)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 2637.0401,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Max temperature",
+     "estimate": 7.873,
+     "p": 0.005
+    },
+    {
+     "param": "b2",
+     "term": "Precipitation",
+     "estimate": 33.3363,
+     "p": 0.466
+    },
+    {
+     "param": "b3",
+     "term": "Game day",
+     "estimate": 1397.8348,
+     "p": 0.0
+    }
+   ],
+   "n": 309,
+   "r2": 0.099,
+   "terms": [
+    "tmax",
+    "prcp",
+    "gameDay"
+   ],
+   "questions": [
+    {
+     "id": "R04-P",
+     "kind": "num",
+     "prompt": "Predict daily sales for a day with max temperature = 70, precipitation = 0.5, game day = 1.",
+     "answer": 4602.65,
+     "tol": 23.013251062648187,
+     "explain": "Substitute into the model: 2637.04 + (7.873 × 70) + (33.3363 × 0.5) + (1397.8348 × 1) = 4602.65.",
+     "fingerprint": "343b00205ab7d17b"
+    },
+    {
+     "id": "R04-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when max temperature is 10 °F higher, holding the other variables constant?",
+     "answer": 78.73,
+     "tol": 0.5,
+     "explain": "The change is b1 × 10 = 7.873 × 10 = 78.73.",
+     "fingerprint": "342d958bd83c73cc"
+    },
+    {
+     "id": "R04-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is game day statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "Yes",
+     "explain": "Its p-value is 0.000, which is below 0.05, so we reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "239bc833bd723c76"
+    },
+    {
+     "id": "R04-R",
+     "kind": "num",
+     "prompt": "What share of the variation in daily sales does this model explain? Give R² as a percentage (one decimal).",
+     "answer": 9.9,
+     "tol": 0.051,
+     "explain": "R² = 0.0990, so the model explains 9.9% of the variation.",
+     "fingerprint": "79db71dbf85e227a"
+    }
+   ]
+  },
+  {
+   "id": "R05",
+   "title": "Last year's sales and game days",
+   "equation": "Predicted daily sales = b₀ + b1[Sales one year ago] + b2[Game day] + b3[Sales one year ago × Game day]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Sales one year ago",
+     "desc": "sales on the same weekday 364 days earlier ($)"
+    },
+    {
+     "name": "Game day",
+     "desc": "1 = university football game that day, 0 = no game (reference group)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 1044.4155,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Sales one year ago",
+     "estimate": 0.6196,
+     "p": 0.0
+    },
+    {
+     "param": "b2",
+     "term": "Game day",
+     "estimate": 387.0296,
+     "p": 0.635
+    },
+    {
+     "param": "b3",
+     "term": "Sales one year ago × Game day",
+     "estimate": 0.0107,
+     "p": 0.946
+    }
+   ],
+   "n": 312,
+   "r2": 0.536,
+   "terms": [
+    "sales_364",
+    "gameDay",
+    "sales_364:gameDay"
+   ],
+   "questions": [
+    {
+     "id": "R05-P",
+     "kind": "num",
+     "prompt": "Predict daily sales for a day with sales one year ago = 3000, game day = 1.",
+     "answer": 3322.45,
+     "tol": 16.612237502702328,
+     "explain": "Substitute into the model: 1044.42 + (0.6196 × 3000) + (387.0296 × 1) + (0.0107 × 3000) = 3322.45.",
+     "fingerprint": "9e0be7e9db86b0d9"
+    },
+    {
+     "id": "R05-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when sales one year ago is $1,000 higher for a day without a game (game day = 0)?",
+     "answer": 619.59,
+     "tol": 3.0979723017768044,
+     "explain": "The change is b1 × 1000 = 0.6196 × 1000 = 619.59.",
+     "fingerprint": "21126d45496f84e0"
+    },
+    {
+     "id": "R05-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is sales one year ago × game day statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "No",
+     "explain": "Its p-value is 0.946, which is above 0.05, so we cannot reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "eb0c98277ed2b1d4"
+    },
+    {
+     "id": "R05-I",
+     "kind": "num",
+     "prompt": "On a game day, by how much do predicted sales change for each $1 higher sales one year ago?",
+     "answer": 0.6303,
+     "tol": 0.0006,
+     "explain": "On a game day the slope is b1 + b3 = 0.6196 + (0.0107) = 0.6303.",
+     "fingerprint": "aa7c9246cbcfb2ec"
+    }
+   ]
+  },
+  {
+   "id": "R06",
+   "title": "Predicting next week",
+   "equation": "Predicted daily sales = b₀ + b1[Sales 7 days earlier]",
+   "variables": [
+    {
+     "name": "Daily sales",
+     "desc": "total net sales for the day ($)"
+    },
+    {
+     "name": "Sales 7 days earlier",
+     "desc": "sales on the same weekday one week earlier ($)"
+    }
+   ],
+   "table": [
+    {
+     "param": "b0",
+     "term": "Intercept",
+     "estimate": 1407.8,
+     "p": 0.0
+    },
+    {
+     "param": "b1",
+     "term": "Sales 7 days earlier",
+     "estimate": 0.5697,
+     "p": 0.0
+    }
+   ],
+   "n": 304,
+   "r2": 0.3275,
+   "terms": [
+    "sales_lag7"
+   ],
+   "questions": [
+    {
+     "id": "R06-P",
+     "kind": "num",
+     "prompt": "The last day in the data is 2018-12-31 with sales of $3,252. Predict sales 7 days later.",
+     "answer": 3260.4,
+     "tol": 16.301985757154604,
+     "explain": "Substitute into the model: 1407.8 + (0.5697 × 3252) = 3260.4.",
+     "fingerprint": "5c89ed4254c91823"
+    },
+    {
+     "id": "R06-C",
+     "kind": "num",
+     "prompt": "By how much do predicted daily sales change when sales 7 days earlier is $1,000 higher?",
+     "answer": 569.68,
+     "tol": 2.848396549224743,
+     "explain": "The change is b1 × 1000 = 0.5697 × 1000 = 569.68.",
+     "fingerprint": "1b68cdd421de52f8"
+    },
+    {
+     "id": "R06-S",
+     "kind": "choice",
+     "prompt": "At the 5% significance level, is sales 7 days earlier statistically significant in this model?",
+     "options": [
+      "Yes",
+      "No"
+     ],
+     "answer": "Yes",
+     "explain": "Its p-value is 0.000, which is below 0.05, so we reject the hypothesis that its coefficient is zero.",
+     "fingerprint": "0e37252894d13804"
+    },
+    {
+     "id": "R06-R",
+     "kind": "num",
+     "prompt": "What share of the variation in daily sales does this model explain? Give R² as a percentage (one decimal).",
+     "answer": 32.8,
+     "tol": 0.051,
+     "explain": "R² = 0.3275, so the model explains 32.8% of the variation.",
+     "fingerprint": "7ac1facbcd35a296"
+    }
+   ]
+  }
+ ]
+}

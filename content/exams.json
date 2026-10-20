@@ -1,0 +1,905 @@
+{
+ "built": "2026-10-20",
+ "exams": [
+  {
+   "id": "E01",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F17",
+    "F21",
+    "K28",
+    "K04",
+    "K08"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E02",
+   "datasets": [
+    "journal",
+    "pcards"
+   ],
+   "questions": [
+    "J10",
+    "J09",
+    "C16",
+    "C19",
+    "C15"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E03",
+   "datasets": [
+    "etl1",
+    "songs"
+   ],
+   "questions": [
+    "E05",
+    "E01",
+    "S02",
+    "S05",
+    "S12"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E04",
+   "datasets": [
+    "codes3",
+    "songs"
+   ],
+   "questions": [
+    "D04",
+    "D03",
+    "S06",
+    "S04",
+    "S07"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E05",
+   "datasets": [
+    "codes2",
+    "chinook"
+   ],
+   "questions": [
+    "T03",
+    "T04",
+    "K24",
+    "K17",
+    "K21"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E06",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F03",
+    "F18",
+    "K18",
+    "K10",
+    "K15"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E07",
+   "datasets": [
+    "etl1",
+    "chinook"
+   ],
+   "questions": [
+    "E01",
+    "E03",
+    "K12",
+    "K15",
+    "K14"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E08",
+   "datasets": [
+    "film",
+    "pcards"
+   ],
+   "questions": [
+    "F29",
+    "F19",
+    "C18",
+    "C16",
+    "C04"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E09",
+   "datasets": [
+    "codes3",
+    "pcards"
+   ],
+   "questions": [
+    "D04",
+    "D03",
+    "C09",
+    "C14",
+    "C16"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E10",
+   "datasets": [
+    "journal",
+    "songs"
+   ],
+   "questions": [
+    "J10",
+    "J04",
+    "S03",
+    "S01",
+    "S09"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E11",
+   "datasets": [
+    "payroll",
+    "songs"
+   ],
+   "questions": [
+    "P12",
+    "P10",
+    "S07",
+    "S08",
+    "S03"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E12",
+   "datasets": [
+    "codes3",
+    "movies"
+   ],
+   "questions": [
+    "D01",
+    "D03",
+    "M15",
+    "M16",
+    "M09"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E13",
+   "datasets": [
+    "journal",
+    "pcards"
+   ],
+   "questions": [
+    "J05",
+    "J09",
+    "C17",
+    "C16",
+    "C13"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E14",
+   "datasets": [
+    "codes3",
+    "movies"
+   ],
+   "questions": [
+    "D03",
+    "D02",
+    "M01",
+    "M02",
+    "M05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E15",
+   "datasets": [
+    "payroll",
+    "pcards"
+   ],
+   "questions": [
+    "P13",
+    "P09",
+    "C16",
+    "C12",
+    "C07"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E16",
+   "datasets": [
+    "codes2",
+    "pcards"
+   ],
+   "questions": [
+    "T04",
+    "T05",
+    "C16",
+    "C14",
+    "C18"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E17",
+   "datasets": [
+    "payroll",
+    "songs"
+   ],
+   "questions": [
+    "P14",
+    "P05",
+    "S06",
+    "S08",
+    "S02"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E18",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D04",
+    "D01",
+    "K14",
+    "K27",
+    "K24"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E19",
+   "datasets": [
+    "codes3",
+    "songs"
+   ],
+   "questions": [
+    "D03",
+    "D02",
+    "S06",
+    "S02",
+    "S04"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E20",
+   "datasets": [
+    "payroll",
+    "pcards"
+   ],
+   "questions": [
+    "P03",
+    "P08",
+    "C01",
+    "C03",
+    "C20"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E21",
+   "datasets": [
+    "codes3",
+    "songs"
+   ],
+   "questions": [
+    "D02",
+    "D01",
+    "S02",
+    "S10",
+    "S01"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E22",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J06",
+    "J03",
+    "K01",
+    "K11",
+    "K22"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E23",
+   "datasets": [
+    "journal",
+    "pcards"
+   ],
+   "questions": [
+    "J03",
+    "J09",
+    "C08",
+    "C16",
+    "C05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E24",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J02",
+    "J07",
+    "K22",
+    "K06",
+    "K05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E25",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J09",
+    "J07",
+    "K13",
+    "K26",
+    "K05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E26",
+   "datasets": [
+    "journal",
+    "movies"
+   ],
+   "questions": [
+    "J07",
+    "J01",
+    "M04",
+    "M13",
+    "M03"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E27",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F21",
+    "F12",
+    "K25",
+    "K01",
+    "K17"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E28",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D03",
+    "D02",
+    "K11",
+    "K04",
+    "K16"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E29",
+   "datasets": [
+    "codes3",
+    "movies"
+   ],
+   "questions": [
+    "D02",
+    "D03",
+    "M17",
+    "M07",
+    "M14"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E30",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J08",
+    "J04",
+    "K22",
+    "K23",
+    "K03"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E31",
+   "datasets": [
+    "journal",
+    "pcards"
+   ],
+   "questions": [
+    "J01",
+    "J04",
+    "C06",
+    "C02",
+    "C18"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E32",
+   "datasets": [
+    "film",
+    "pcards"
+   ],
+   "questions": [
+    "F28",
+    "F25",
+    "C07",
+    "C16",
+    "C01"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E33",
+   "datasets": [
+    "etl1",
+    "movies"
+   ],
+   "questions": [
+    "E05",
+    "E02",
+    "M06",
+    "M18",
+    "M13"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E34",
+   "datasets": [
+    "codes2",
+    "pcards"
+   ],
+   "questions": [
+    "T05",
+    "T04",
+    "C03",
+    "C13",
+    "C10"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E35",
+   "datasets": [
+    "etl1",
+    "chinook"
+   ],
+   "questions": [
+    "E02",
+    "E03",
+    "K15",
+    "K16",
+    "K25"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E36",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D04",
+    "D01",
+    "K11",
+    "K17",
+    "K16"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E37",
+   "datasets": [
+    "codes3",
+    "songs"
+   ],
+   "questions": [
+    "D03",
+    "D01",
+    "S04",
+    "S12",
+    "S01"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E38",
+   "datasets": [
+    "film",
+    "pcards"
+   ],
+   "questions": [
+    "F21",
+    "F11",
+    "C14",
+    "C18",
+    "C06"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E39",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F28",
+    "F06",
+    "K12",
+    "K18",
+    "K22"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E40",
+   "datasets": [
+    "journal",
+    "movies"
+   ],
+   "questions": [
+    "J02",
+    "J05",
+    "M18",
+    "M07",
+    "M10"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E41",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J09",
+    "J03",
+    "K04",
+    "K26",
+    "K09"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E42",
+   "datasets": [
+    "film",
+    "pcards"
+   ],
+   "questions": [
+    "F06",
+    "F04",
+    "C02",
+    "C12",
+    "C06"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E43",
+   "datasets": [
+    "payroll",
+    "songs"
+   ],
+   "questions": [
+    "P09",
+    "P06",
+    "S05",
+    "S10",
+    "S02"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E44",
+   "datasets": [
+    "codes2",
+    "chinook"
+   ],
+   "questions": [
+    "T02",
+    "T03",
+    "K09",
+    "K03",
+    "K01"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E45",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D04",
+    "D01",
+    "K02",
+    "K04",
+    "K08"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E46",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F04",
+    "F22",
+    "K18",
+    "K19",
+    "K28"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E47",
+   "datasets": [
+    "codes2",
+    "chinook"
+   ],
+   "questions": [
+    "T04",
+    "T05",
+    "K21",
+    "K23",
+    "K20"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E48",
+   "datasets": [
+    "film",
+    "pcards"
+   ],
+   "questions": [
+    "F11",
+    "F20",
+    "C07",
+    "C15",
+    "C14"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E49",
+   "datasets": [
+    "payroll",
+    "songs"
+   ],
+   "questions": [
+    "P11",
+    "P06",
+    "S09",
+    "S11",
+    "S05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E50",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D03",
+    "D01",
+    "K24",
+    "K23",
+    "K14"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E51",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F23",
+    "F11",
+    "K10",
+    "K24",
+    "K25"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E52",
+   "datasets": [
+    "film",
+    "chinook"
+   ],
+   "questions": [
+    "F25",
+    "F14",
+    "K11",
+    "K19",
+    "K01"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E53",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J04",
+    "J09",
+    "K02",
+    "K24",
+    "K04"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E54",
+   "datasets": [
+    "etl1",
+    "songs"
+   ],
+   "questions": [
+    "E01",
+    "E06",
+    "S03",
+    "S09",
+    "S06"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E55",
+   "datasets": [
+    "journal",
+    "chinook"
+   ],
+   "questions": [
+    "J01",
+    "J07",
+    "K19",
+    "K05",
+    "K12"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E56",
+   "datasets": [
+    "codes3",
+    "pcards"
+   ],
+   "questions": [
+    "D04",
+    "D01",
+    "C14",
+    "C08",
+    "C05"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E57",
+   "datasets": [
+    "etl1",
+    "songs"
+   ],
+   "questions": [
+    "E06",
+    "E05",
+    "S11",
+    "S09",
+    "S07"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E58",
+   "datasets": [
+    "codes2",
+    "movies"
+   ],
+   "questions": [
+    "T02",
+    "T01",
+    "M01",
+    "M09",
+    "M16"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E59",
+   "datasets": [
+    "codes3",
+    "chinook"
+   ],
+   "questions": [
+    "D03",
+    "D01",
+    "K21",
+    "K19",
+    "K03"
+   ],
+   "minutes": 8
+  },
+  {
+   "id": "E60",
+   "datasets": [
+    "etl1",
+    "songs"
+   ],
+   "questions": [
+    "E06",
+    "E05",
+    "S05",
+    "S06",
+    "S09"
+   ],
+   "minutes": 8
+  }
+ ]
+}
