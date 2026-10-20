@@ -3,7 +3,8 @@
 A practice website for the oral exam in Data Analytics in Accounting (SDU), built only from the course materials.
 
 - **Data manipulation exams**: two Excel questions and three SQL questions per exam, with an eight-minute timer. SQL runs in the browser (sql.js) on the course databases.
-- **Question bank**: 148 questions covering NYC film permits, the four ETL cases, IntegrateCo payroll, CS50 songs and movies, Chinook and the OSU P-card audit.
+- **Question bank**: 130 new practice questions covering NYC film permits, the four ETL cases, IntegrateCo payroll, CS50 songs, movies and Fiftyville, Chinook and the OSU P-card audit. They are written for this site, not copied from the course assignments, and every answer is computed from the course data.
+- **Course assignment check**: the 35 original PwC questions whose answers are published in the course materials. They are not used in exams; they show that the answer method reproduces the instructor's key, and where the key and the data disagree.
 - **Data interpretation exams**: regression models fitted on the merged Restaurant case data, which anyone can re-run in Excel.
 
 ## The improvement: an answer key a person stands behind

@@ -34,13 +34,16 @@ MAX_ROWS = 1000  # keep answer files small enough to load quickly
 # ------------------------------------------------------------------ Python checks
 # A few datasets need cleaning that is clearer in Python than in one SQL query.
 
-def _codes3(con):
+def _codes3(con, raw=False):
     out = []
     for (code,) in con.execute("SELECT EmployeeCode FROM codes3"):
         m = re.fullmatch(r"([A-Za-z]+)(\d+)-(\d+)([A-Za-z]+)", code.strip())
         if not m:
             raise ValueError(f"Unparsed Case 3 code: {code!r}")
         loc, emp, plant, pay = m.groups()
+        if raw:
+            out.append((loc, int(emp), int(plant), pay))
+            continue
         loc = {"Canada": "CAN", "Japan": "JAP", "US": "USA"}.get(loc, loc)
         pay = {"W": "W", "We": "W", "M": "M", "Mo": "M"}[pay]
         out.append((loc, int(emp), int(plant), pay))
@@ -94,6 +97,17 @@ def py_check(con, name):
             return len({f"{r[0]}-{r[2]}" for r in rows})
         if key == "codes3_empsum":
             return sum(r[1] for r in rows)
+        raw = _codes3(con, raw=True)
+        if key == "codes3_longpay":
+            return sum(1 for r in raw if r[3] in ("We", "Mo"))
+        if key == "codes3_nonstd":
+            return sum(1 for r in raw if r[0] in ("Canada", "Japan", "US"))
+        aus = [r for r in rows if r[0] == "AUS"]
+        top = max(r[2] for r in aus)
+        if key == "codes3_aus_maxplant":
+            return top
+        if key == "codes3_aus_maxplant_n":
+            return sum(1 for r in aus if r[2] == top)
     raw, clean = _etl1()
     dd = _dedup(clean)
     if key == "etl1_rows":
@@ -108,6 +122,10 @@ def py_check(con, name):
         return sum(_money(r[7]) for r in dd if r[1].startswith("Amazon"))
     if key == "etl1_ar_2017":
         return sum(_money(r[4]) for r in dd if r[2] == "2017")
+    if key == "etl1_aapl_tca":
+        return next(float(r[6]) * 1e6 for r in dd if r[0] == "AAPL" and r[2] == "2018")
+    if key == "etl1_bad_inventory":
+        return sum(1 for r in clean if r[5].strip() in ("", "-"))
     if key == "etl1_bad_ticker":
         return sum(1 for r in raw if not r[0].strip() or " " in r[0])
     raise KeyError(name)
@@ -154,9 +172,13 @@ def agrees(computed, instructor, kind_or_none):
 # ------------------------------------------------------------------ build
 
 def build_questions(con):
+    ids = [q["id"] for q in Q]
+    dupes = sorted({i for i in ids if ids.count(i) > 1})
+    if dupes:
+        raise ValueError(f"Duplicate question IDs: {dupes}")
     out = []
     for q in Q:
-        item = {k: q[k] for k in ("id", "ds", "subject", "prompt", "topics", "minutes")}
+        item = {k: q[k] for k in ("id", "ds", "subject", "prompt", "topics", "minutes", "set")}
         if q["subject"] == "Excel":
             fields = []
             for ch in q["checks"]:
@@ -207,7 +229,8 @@ def build_exams(questions):
     rng = random.Random(2026)
     by_ds = {}
     for q in questions:
-        by_ds.setdefault(q["ds"], []).append(q)
+        if q["set"] == "practice":
+            by_ds.setdefault(q["ds"], []).append(q)
     excel_ds = [d for d in by_ds if DATASETS[d]["subject"] == "Excel" and len(by_ds[d]) >= 2]
     sql_ds = [d for d in by_ds if DATASETS[d]["subject"] == "SQL"]
     exams, seen = [], set()

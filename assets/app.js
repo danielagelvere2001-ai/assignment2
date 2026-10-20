@@ -106,7 +106,7 @@ function renderQuestion(q, mount, { onSolved } = {}) {
   const t = trustOf(q);
   const node = el(h`<article class="stack">
     <div class="spread"><div class="row"><span class="tag">${esc(q.subject)}</span><span class="tag">${esc(ds.case)}</span>
-      <span class="tag">${esc(ds.name)}</span><span class="tag">≈ ${q.minutes} min</span></div>${badge(q)}</div>
+      <span class="tag">${esc(ds.name)}</span><span class="tag">≈ ${q.minutes} min</span>${q.set === "assignment" ? '<span class="tag">Course assignment question</span>' : ""}</div>${badge(q)}</div>
     <h2 style="margin-top:.2em">${esc(q.id)} · ${esc(q.prompt)}</h2>
     <div class="downloads">${ds.files.map(fileLink).join("")}</div>
     ${ds.note ? `<p class="muted small">${esc(ds.note)}</p>` : ""}
@@ -247,7 +247,7 @@ pages.home = () => h`
     <h1>Practise the exam you will actually sit</h1>
     <p>The oral exam gives you one <strong>data manipulation</strong> exam (Excel and SQL on the course datasets) and one <strong>data interpretation</strong> exam (regression output). Every question here is built only from the course materials, and you can check every answer.</p>
     <p>An answer key you cannot trust is worse than none. Each answer on this site shows <strong>who stands behind it</strong>: the instructor's published key, a named human reviewer, or nobody yet. <a href="#/answer-key">How that works</a>.</p>
-    <div class="row"><a class="btn primary" href="#/exams/random">Start a random manipulation exam</a><a class="btn" href="#/interpretation">Interpretation exams</a><a class="btn" href="#/questions">Browse all ${S.questions.length} questions</a></div>
+    <div class="row"><a class="btn primary" href="#/exams/random">Start a random manipulation exam</a><a class="btn" href="#/interpretation">Interpretation exams</a><a class="btn" href="#/questions">Browse all ${S.questions.filter((q) => q.set === "practice").length} practice questions</a></div>
   </section>
   <div class="grid" style="margin-top:1rem">
     ${["Excel", "SQL"].map((sub) => {
@@ -255,6 +255,7 @@ pages.home = () => h`
       return `<div class="card"><h3 style="margin-top:0">${sub}</h3><ul class="small">${ds.map(([k, d]) => `<li><a href="#/questions?ds=${k}">${esc(d.name)}</a> <span class="muted">· ${esc(d.case)}</span></li>`).join("")}</ul></div>`;
     }).join("")}
     <div class="card"><h3 style="margin-top:0">Answer key status</h3>${trustSummaryHtml()}</div>
+    <div class="card"><h3 style="margin-top:0">Course assignment check</h3><p class="small">${S.questions.filter((q) => q.set === "assignment").length} original PwC assignment questions with the instructor's published answers. The site's method reproduces the key, and also shows the ${S.questions.filter((q) => q.instructor && !q.instructor.agrees).length} places where the key and the data disagree.</p><a class="btn small" href="#/questions?set=assignment">Open the check</a></div>
   </div>`;
 
 function trustCounts() {
@@ -276,12 +277,18 @@ function trustSummaryHtml() {
 
 pages.questions = (params) => {
   const sub = params.get("subject") || "", ds = params.get("ds") || "", tr = params.get("trust") || "", text = params.get("q") || "";
-  const list = S.questions.filter((q) => (!sub || q.subject === sub) && (!ds || q.ds === ds) && (!tr || trustOf(q).level === tr)
+  const set = params.get("set") || "practice";
+  const list = S.questions.filter((q) => (set === "all" || q.set === set) && (!sub || q.subject === sub) && (!ds || q.ds === ds) && (!tr || trustOf(q).level === tr)
     && (!text || (q.id + " " + q.prompt + " " + q.topics.join(" ")).toLowerCase().includes(text.toLowerCase())));
   const opt = (v, cur, label) => `<option value="${v}" ${v === cur ? "selected" : ""}>${esc(label)}</option>`;
-  return h`<h1>Question bank</h1>
-    <p class="muted">Every manipulation exam is made of these questions. ${solved.size ? `You have solved ${[...solved].filter((id) => S.byId[id]).length} of ${S.questions.length}.` : ""}</p>
+  const nPractice = S.questions.filter((q) => q.set === "practice").length;
+  return h`<h1>${set === "assignment" ? "Course assignment check" : "Question bank"}</h1>
+    <p class="muted">${set === "assignment"
+      ? "The original PwC Excel and SQL assignment questions, with the answers published in the course materials. They are not used in the exams: they are here so you can see that the site's computed answers agree with the instructor's key, and where they don't."
+      : `${nPractice} new practice questions written for this site from the course datasets. Every manipulation exam is made of these.`}
+      ${solved.size ? ` You have solved ${[...solved].filter((id) => S.byId[id]?.set === "practice").length} of ${nPractice} practice questions.` : ""}</p>
     <form class="filters" id="qfilter">
+      <select name="set" aria-label="Question set">${opt("practice", set, "New practice questions")}${opt("assignment", set, "Course assignment check")}${opt("all", set, "Both sets")}</select>
       <select name="subject" aria-label="Subject">${opt("", sub, "All subjects")}${opt("Excel", sub, "Excel")}${opt("SQL", sub, "SQL")}</select>
       <select name="ds" aria-label="Dataset">${opt("", ds, "All datasets")}${Object.entries(S.datasets).map(([k, d]) => opt(k, ds, d.name)).join("")}</select>
       <select name="trust" aria-label="Answer status">${opt("", tr, "Any answer status")}${opt("reviewed", tr, "Reviewed")}${opt("instructor", tr, "Matches instructor key")}${opt("conflict", tr, "Instructor key disagrees")}${opt("unreviewed", tr, "Not yet reviewed")}</select>
@@ -293,7 +300,7 @@ pages.questions = (params) => {
 };
 pages.questions.after = () => {
   const f = document.getElementById("qfilter");
-  const go = () => { const p = new URLSearchParams(); for (const [k, v] of new FormData(f)) if (v) p.set(k, v); location.hash = "#/questions" + (p.size ? "?" + p : ""); };
+  const go = () => { const p = new URLSearchParams(); for (const [k, v] of new FormData(f)) if (v && !(k === "set" && v === "practice")) p.set(k, v); location.hash = "#/questions" + (p.size ? "?" + p : ""); };
   f.onchange = go;
   f.onsubmit = (e) => { e.preventDefault(); go(); };
   let tmo; f.elements.q.oninput = () => { clearTimeout(tmo); tmo = setTimeout(go, 400); };
@@ -444,7 +451,7 @@ pages["answer-key"] = () => {
   <div class="card stack">
     <p style="margin-top:0">An exam-practice site is only useful if students can trust its answer key. This site does not let an AI or a script vouch for an answer. Every answer shows its source:</p>
     <ul>
-      <li><span class="badge instructor">Matches instructor key</span> The answer computed from the data equals the answer published in the course materials (<em>solutions.xlsx</em> for Excel Part 1, <em>PWC answers.docx</em> for SQL Part 1).</li>
+      <li><span class="badge instructor">Matches instructor key</span> The answer computed from the data equals the answer published in the course materials (<em>solutions.xlsx</em> for Excel Part 1, <em>PWC answers.docx</em> for SQL Part 1). These are the <a href="#/questions?set=assignment">course assignment questions</a>. Because the same method reproduces the instructor's key there, it can be trusted to compute answers for the new practice questions, and a reviewer then signs those off.</li>
       <li><span class="badge reviewed">Reviewed by …</span> A named person checked the question, re-ran the method, and approved the answer. The sign-off is committed to <a href="https://github.com/${REPO}/commits/main/content/reviews.json">content/reviews.json</a>, so the history shows who approved what and when.</li>
       <li><span class="badge conflict">Instructor key disagrees</span> The published key and the data give different answers. The site does not quietly pick one. It shows both, explains the difference, and waits for a person to decide.</li>
       <li><span class="badge stale">Changed since review</span> A sign-off covers one exact version of the question, method and answer. If any of them changes, the old approval stops counting.</li>
