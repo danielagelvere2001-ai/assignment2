@@ -1,3 +1,137 @@
 {
- "reviews": {}
+ "reviews": {
+  "PX10": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "05011c115bb8367d"
+  },
+  "BS01": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "8d80052139a92cda"
+  },
+  "BS02": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "ac286d3991783290"
+  },
+  "BS04": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "54c12790b24f7113"
+  },
+  "BS05": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "c9272ccf0ad8d4ef"
+  },
+  "EC01": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "8d0320490dc9066e"
+  },
+  "EC02": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "910658c79278bcd9"
+  },
+  "EC03": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "a5d6e0de35d3d916"
+  },
+  "EC04": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "fa7863aba116a735"
+  },
+  "EC05": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "ecee39aa23c00b08"
+  },
+  "EC06": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "92151f53816f5f7b"
+  },
+  "MC01": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "99a30b635817f38e"
+  },
+  "MC02": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "a496cb91dd5da574"
+  },
+  "MC03": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "7c06e6055872bafa"
+  },
+  "MC04": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "1cfee07f02b45c8b"
+  },
+  "JE01": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "bcf222aa64088bfc"
+  },
+  "JE02": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "c323962a09240c71"
+  },
+  "JE03": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "d2df2228c8d52fb7"
+  },
+  "JE04": {
+   "decision": "approved",
+   "reviewer": "Daniela Gelvere",
+   "date": "2026-10-26",
+   "note": "",
+   "fingerprint": "84eaea3efd222b06"
+  }
+ }
 }
